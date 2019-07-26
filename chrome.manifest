@@ -1,0 +1,15 @@
+content custombutton chrome/
+content URI          chrome/
+style chrome://global/content/customizeToolbar.xul chrome://custombutton/content/button.css
+
+
+# Thunderbird mail
+overlay	chrome://messenger/content/messenger.xul chrome://custombutton/content/button.xul
+
+# Thunderbird compose
+overlay	chrome://messenger/content/messengercompose/messengercompose.xul chrome://custombutton/content/button.xul
+
+# Thunderbird address book
+overlay	chrome://messenger/content/addressbook/addressbook.xul chrome://custombutton/content/button.xul
+
+overlay chrome://messenger/content/msgHdrViewOverlay.xul chrome://custombutton/content/thundersec.xul
