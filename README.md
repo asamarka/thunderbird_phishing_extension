@@ -1,0 +1,1 @@
+# thunderbird_phishing_extension
