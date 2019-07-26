@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css"
+  href="chrome://custombutton/content/button.css"?>
+
+<!DOCTYPE overlay >
+<overlay id="custombutton-overlay"
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<script type="application/javascript"
+  src="chrome://custombutton/content/button.js"/>
+
+
+
+<script type="application/javascript" 
+  src="chrome://custombutton/content/d3.v3.min.js" charset="utf-8"></script>
+
+<!-- 
+<script type="application/javascript"
+  src="chrome://custombutton/content/jurlp.js"/>
+
+ -->
+<!-- <script 
+  src="chrome://custombutton/content/tldjs_lib/"/> -->
+
+<!-- <script 
+  src="chrome://custombutton/content/tldjs_lib/node_modules/tldjs/test/publicsuffix.js"/> -->
+
+<script src="https://wzrd.in/standalone/tldjs"></script>
+<!-- <script type="application/javascript"
+  src="chrome://custombutton/content/require.js"/> -->
+
+<toolbarpalette id="header-view-toolbar">
+  <toolbarbutton id="custom-button-1"/>
+</toolbarpalette>
+
+<tree id="threadTree">
+    <treecols id="threadCols">
+    <splitter class="tree-splitter" />
+    <treecol id="colReplyTo" persist="hidden ordinal width" 
+           currentView="unthreaded" flex="2"
+           label="Reply-To" tooltiptext="Click to sort by the Reply-To header" />
+    </treecols>
+  </tree>
+
+
+<!-- button details -->
+<toolbarbutton id="custom-button-1"
+  label="Phishing"
+  tooltiptext="download tld"
+  oncommand="CustomButton[1]()"
+  class="toolbarbutton-1 msgHeaderView-button custombutton" 
+  />
+
+
+  <!-- <statusbar id="status-bar">
+       <statusbarpanel id="dnsblInfo" label=""/>
+       <image id='imgSpinner' src='chrome://custombutton/content/spinner.gif' hidden='true'/>
+   </statusbar>
+
+ -->
+</overlay>

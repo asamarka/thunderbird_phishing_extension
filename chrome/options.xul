@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<!DOCTYPE prefwindow SYSTEM "chrome://thundersec/locale/options.dtd">
+<prefwindow id="thundersec-preferences" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="&prefwindow.title;">
+  <script src="chrome://thundersec/content/settings.js"/>
+  <script src="chrome://thundersec/content/options.js"/>
+  <prefpane id="pane1" label="&pane1.title;">
+    <preferences>
+      <preference id="zen.spamhaus.org" name="extensions.thundersec.zen.spamhaus.org" type="bool"/>
+      <preference id="b.barracudacentral.org" name="extensions.thundersec.b.barracudacentral.org" type="bool"/>
+      <preference id="dnsbl.abuse.ch" name="extensions.thundersec.dnsbl.abuse.ch" type="bool"/>
+      <preference id="cbl.abuseat.org" name="extensions.thundersec.cbl.abuseat.org" type="bool"/>
+      <preference id="ubl.unsubscore.com" name="extensions.thundersec.ubl.unsubscore.com" type="bool"/>
+      <preference id="bl.spamcop.net" name="extensions.thundersec.bl.spamcop.net" type="bool"/>
+      <preference id="dnsbl.sorbs.net" name="extensions.thundersec.dnsbl.sorbs.net" type="bool"/>
+      <preference id="custom_dnsbl_enabled" name="extensions.thundersec.custom_dnsbl_enabled" type="bool"/>
+      <preference id="custom_dnsbl" name="extensions.thundersec.custom_dnsbl" type="string"/>
+
+      <preference id="multi.uribl.com" name="extensions.thundersec.multi.uribl.com" type="bool"/>
+      <preference id="multi.surbl.org" name="extensions.thundersec.multi.surbl.org" type="bool"/>
+      <preference id="custom_surbl_enabled" name="extensions.thundersec.custom_surbl_enabled" type="bool"/>
+      <preference id="custom_surbl" name="extensions.thundersec.custom_surbl" type="string"/>
+
+      <preference id="auto_junk_enabled" name="extensions.thundersec.auto_junk_enabled" type="bool"/>
+      <preference id="display_clean_message" name="extensions.thundersec.display_clean_message" type="bool"/>
+      <preference id="api_enabled" name="extensions.thundersec.api_enabled" type="bool"/>
+    </preferences>
+    <tabbox id="optionsTabs" selectedIndex="0">
+      <tabs>
+        <tab label="DNSBL Services"/>
+        <tab label="SURBL Services"/>
+        <tab label="Advanced"/>
+      </tabs>
+      <tabpanels>
+        <tabpanel>
+          <hbox>
+            <vbox>
+              <checkbox id="checkbool.zen.spamhaus.org" preference="zen.spamhaus.org" label="zen.spamhaus.org" />
+              <checkbox id="checkbool.b.barracudacentral.org" preference="b.barracudacentral.org" label="b.barracudacentral.org" />
+              <checkbox id="checkbool.dnsbl.abuse.ch" preference="dnsbl.abuse.ch" label="dnsbl.abuse.ch" />
+              <checkbox id="checkbool.cbl.abuseat.org" preference="cbl.abuseat.org" label="cbl.abuseat.org" />
+            </vbox>
+            <vbox>
+              <checkbox id="checkbool.ubl.unsubscore.com" preference="ubl.unsubscore.com" label="ubl.unsubscore.com" />
+              <checkbox id="checkbool.bl.spamcop.net" preference="bl.spamcop.net" label="bl.spamcop.net" />
+              <checkbox id="checkbool.dnsbl.sorbs.net" preference="dnsbl.sorbs.net" label="dnsbl.sorbs.net" />
+              <hbox>
+                 <checkbox id="checkbool.custom_dnsbl_enabled" preference="custom_dnsbl_enabled" label="" onclick="enableCustomDNSBL(this);" />
+                 <textbox id="string.custom_dnsbl" preference="custom_dnsbl" onclick="clearInput();"/>
+              </hbox>
+            </vbox>
+          </hbox>
+        </tabpanel>
+        <tabpanel>
+          <hbox>
+            <vbox>
+              <checkbox id="checkbool.multi.uribl.com" preference="multi.uribl.com" label="multi.uribl.com" />
+              <hbox>
+                 <checkbox id="checkbool.custom_surbl_enabled" preference="custom_surbl_enabled" label="" onclick="enableCustomSURBL(this);" />
+                 <textbox id="string.custom_surbl" preference="custom_surbl" onclick="clearSURBLInput();"/>
+              </hbox>
+            </vbox>
+            <vbox>
+              <checkbox id="checkbool.multi.surbl.org" preference="multi.surbl.org" label="multi.surbl.org" />
+            </vbox>
+          </hbox>
+        </tabpanel>
+        <tabpanel>
+           <vbox style='width: 100%;'>
+             <checkbox id="checkbool.auto_junk_enabled" preference="auto_junk_enabled" label="Automatically mark messages as Junk if they fail any security check." />
+             <checkbox id="checkbool.display_clean_message" preference="display_clean_message" label="Display notification even if no violations found." />
+             <checkbox id="checkbool.api_enabled" preference="api_enabled" label="Send sanitized information to the cloud for improved results." />
+             <separator/>
+             <hbox pack='center'>
+               <button label='View Whitelist' oncommand='viewWhitelist();' />
+               <button label='Clear Whitelist' oncommand='clearWhitelist();' />
+             </hbox>
+           </vbox>
+        </tabpanel> 
+      </tabpanels>
+    </tabbox>
+  </prefpane>
+  <script>
+      if ( document.getElementById("checkbool.custom_dnsbl_enabled").checked ) {
+          document.getElementById("string.custom_dnsbl").removeAttribute("disabled");
+      } else {
+          document.getElementById("string.custom_dnsbl").setAttribute("disabled", true);
+      }
+      if ( document.getElementById("checkbool.custom_surbl_enabled").checked ) {
+          document.getElementById("string.custom_surbl").removeAttribute("disabled");
+      } else {
+          document.getElementById("string.custom_surbl").setAttribute("disabled", true);
+      }
+  </script>
+</prefwindow>

@@ -1,0 +1,42 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="jurlp.js"></script>
+
+<script type="text/javascript">
+
+
+src = "https://www.w3schools.com/html https://www.google.com/html ghhy https://www.fb.com/html bb https://www.w3schools.com/html";
+
+var reghost = /^(([^:\/?#]+):)?(\/\/([^\/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?/;
+
+var xx= reghost.exec(src);
+console.log(xx);
+
+
+//alert( $.jurlp(src).query("wmode=opaque").url().toString());
+
+
+url = $.jurlp("http://www.example.com:80/path/file.name?param1=value1#fragment");
+//console.log(url);
+//console.log(url.host);
+//console.log( $.jurlp(src).url().toString());
+
+//console.log ($.jurlp("http://www.example.com:8080/path/file.name?query=string#anchor").toString());
+
+
+url = $.jurlp("http://www.example.com:80/path/file.name?param1=value1#fragment");
+var x = url.host();
+
+//alert(x);
+
+</script>
+</head>
+<body>
+hi
+Hello
+<a href="https://www.w3schools.com/html/">Visit our HTML tutorial</a>
+
+</body>
+
+</html>
